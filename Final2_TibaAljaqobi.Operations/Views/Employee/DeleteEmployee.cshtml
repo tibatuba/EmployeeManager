@@ -1,0 +1,32 @@
+﻿@model Final2_TibaAljaqobi.Entities.Employee
+
+@{
+    ViewData["Title"] = "Delete Employee";
+}
+
+<h2>Delete Employee</h2>
+
+<div>
+    <h3>Are you sure you want to delete this employee?</h3>
+    <div>
+        <h4>@Model.Name</h4>
+        <dl class="row">
+            <dt class="col-sm-2">ID</dt>
+            <dd class="col-sm-10">@Model.Id</dd>
+
+            <dt class="col-sm-2">Joining Date</dt>
+            <dd class="col-sm-10">@Model.JoiningDate.ToShortDateString()</dd>
+
+            <dt class="col-sm-2">Salary</dt>
+            <dd class="col-sm-10">@Model.Salary</dd>
+
+            <dt class="col-sm-2">Department</dt>
+            <dd class="col-sm-10">@Model.Department?.DepartmentName</dd>
+        </dl>
+    </div>
+    <form asp-action="DeleteEmployee" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="ShowEmployee" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

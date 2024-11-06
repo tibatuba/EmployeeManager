@@ -1,0 +1,13 @@
+﻿@model DateTime
+
+@{
+    ViewData["Title"] = "New Employees";
+}
+
+<h2>Find New Employees</h2>
+
+<form asp-action="NewEmployees" method="post">
+    <label>Enter joining date:</label>
+    <input type="date" name="joinDate" required />
+    <button type="submit">Search</button>
+</form>

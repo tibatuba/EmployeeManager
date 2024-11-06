@@ -1,0 +1,40 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "Employee List by Department";
+}
+
+<h2>Employee List by Department</h2>
+
+<form asp-action="EmployeeListByDepartment" method="post">
+    <div class="form-group mb-3">
+        <label>Select Department</label>
+        @Html.DropDownList("departmentId", (IEnumerable<SelectListItem>)ViewBag.AllDepartments, "Select Department", new { @class = "form-select" })
+    </div>
+    <button type="submit" class="btn btn-primary">Show Employees</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <h3 class="mt-4">Employees in Selected Department</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.Name</td>
+                    <td>@employee.Salary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model != null)
+{
+    <p class="mt-4">No employees found in the selected department.</p>
+}

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Final2_TibaAljaqobi.Entities.Employee>
+
+@{
+    ViewData["Title"] = "New Employees";
+}
+
+<h2>New Employees</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Joining Date</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.Name</td>
+                <td>@employee.JoiningDate.ToShortDateString()</td>
+                <td>@employee.Salary</td>
+            </tr>
+        }
+    </tbody>
+</table>

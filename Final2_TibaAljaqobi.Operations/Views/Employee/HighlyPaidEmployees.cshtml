@@ -1,0 +1,13 @@
+﻿@model double
+
+@{
+    ViewData["Title"] = "Highly Paid Employees";
+}
+
+<h2>Find Highly Paid Employees</h2>
+
+<form asp-action="HighlyPaidEmployees" method="post">
+    <label>Enter minimum salary:</label>
+    <input type="number" name="minSalary" step="0.01" required />
+    <button type="submit">Search</button>
+</form>
